@@ -8,7 +8,7 @@
 
 # (A) Production use (optimized mode)
 #OPT ?= -g2 #-DNDEBUG  -std=gnu++0x
-OPT ?= -O3 -march=native -DNDEBUG -std=gnu++0x
+OPT ?= -O3 -march=native -DNDEBUG -std=gnu++0x -I./hoard/heaplayers/wrappers
 #OPT ?= -O3 -DNDEBUG 
 
 # (B) Debug mode, w/ full line-level debugging symbols
@@ -67,7 +67,7 @@ CXXFLAGS += -I. -I./include $(PLATFORM_CXXFLAGS) $(OPT)
 
 LDFLAGS += $(PLATFORM_LDFLAGS)
 LIBS += $(PLATFORM_LIBS) #-lhoard -lnuma
-
+LIBS += ./libsnappy.a
 SIMULATOR_OUTDIR=out-ios-x86
 DEVICE_OUTDIR=out-ios-arm
 
